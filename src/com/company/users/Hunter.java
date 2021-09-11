@@ -11,5 +11,6 @@ public class Hunter extends Hero{
     @Override
     public void useAbility(Hero[] heroes, Boss boss) {
 
+
     }
 }

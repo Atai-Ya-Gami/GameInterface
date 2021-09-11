@@ -18,7 +18,7 @@ public class RpgGame {
         Hero heroes[] = createHeroes();
         Boss boss = new Boss(490,30);
         PrintStatistic(heroes,boss);
-        while(isFinish(heroes,boss)){
+        while(!isFinish(heroes,boss)){
             round(heroes,boss);
         }
     }
@@ -64,18 +64,21 @@ public class RpgGame {
 
     private static void HeroesHits(Hero heroes[], Boss boss) {
         for (Hero hero : heroes) {
-            int heroDamage = hero.Damage;
+            int heroDamage = hero.getDamage();
             boss.PutDamage(heroDamage);
-            System.out.println("Hero " + hero.getClass().getSimpleName() + "attack boss:" + heroDamage);
+            System.out.println("Hero " + hero.getClass().getSimpleName() + " attack boss:" + heroDamage);
+
         }
+        System.out.println("-------------------");
     }
 
     private static void BossHits(Hero heroes[], Boss boss) {
         for (Hero hero : heroes) {
             int BossDamage = boss.getAttack();
-            hero.PutDamage(boss.Damage);
-            System.out.println("Boss attack hero" + hero.getClass().getSimpleName() + ": " + boss.Damage);
+            hero.PutDamage(BossDamage);
+            System.out.println("Boss attack hero" + hero.getClass().getSimpleName() + ": " + BossDamage);
 
         }
+        System.out.println("-------------------");
     }
 }
