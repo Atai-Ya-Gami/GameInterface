@@ -3,6 +3,7 @@ package com.company;
 import java.util.Random;
 
 public abstract class GameEntity {
+
     protected int Health;
     protected int Damage;
 

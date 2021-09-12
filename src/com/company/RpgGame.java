@@ -5,8 +5,10 @@ import com.company.boss.Boss;
 import com.company.users.*;
 
 public class RpgGame {
+    public static int RoundCounter = 0;
     public static void PrintStatistic(Hero heroes[], Boss boss){
         System.out.println("-------------------");
+        System.out.println("Round : " + RoundCounter);
         System.out.println("Boss health: " + boss.getHealth());
         for (Hero hero : heroes) {
             System.out.println("Hero " + hero.getClass().getSimpleName()
@@ -14,6 +16,7 @@ public class RpgGame {
         }
         System.out.println("-------------------");
     }
+
     public static void StartGame(){
         Hero heroes[] = createHeroes();
         Boss boss = new Boss(490,30);
@@ -39,6 +42,7 @@ public class RpgGame {
     }
     private static boolean isFinish(Hero heroes[], Boss boss) {
         if (boss.getHealth() <= 0) {
+            System.out.println("Heroes won!");
             return true;
         }
         boolean allHeroesDead = true;
@@ -47,18 +51,22 @@ public class RpgGame {
                 allHeroesDead = false;
                 break;
             }
-
+            if(allHeroesDead){
+                System.out.println("Boss won!!");
+            }
         }
         return allHeroesDead;
     }
     private static void round(Hero heroes[], Boss boss){
         BossHits(heroes,boss);
-        if(isFinish(heroes,boss)){
+        if(!isFinish(heroes,boss)){
+            RoundCounter++;
             PrintStatistic(heroes,boss);
         }
         HeroesHits(heroes,boss);
         appleAbility(heroes,boss);
         appleAbility(heroes,boss);
+
 
     }
 
@@ -81,4 +89,5 @@ public class RpgGame {
         }
         System.out.println("-------------------");
     }
+
 }

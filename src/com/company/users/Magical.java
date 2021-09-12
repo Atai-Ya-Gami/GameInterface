@@ -17,8 +17,5 @@ public class Magical extends Hero{
 
             hero.setDamage(getDamage() + SomeNum) ;
         }
-        System.out.println("Magical Boosted the Heroes!");
-        System.out.println("-------------------");
-
     }
 }

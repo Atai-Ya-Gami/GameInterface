@@ -17,8 +17,5 @@ public class Medic extends Hero {
             hero.setHealth(getHealth() + randomNum);
 
         }
-        System.out.println("Medic is Healing!");
-        System.out.println("-------------------");
-
     }
 }

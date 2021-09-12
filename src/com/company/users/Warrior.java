@@ -12,8 +12,7 @@ public class Warrior extends Hero {
     @Override
     public void useAbility(Hero[] heroes, Boss boss) {
     boss.setHealth(getHealth() - getDamage());
-        System.out.println("Warrior used Super Power");
-        System.out.println("-------------------");
+
     }
 
 }
